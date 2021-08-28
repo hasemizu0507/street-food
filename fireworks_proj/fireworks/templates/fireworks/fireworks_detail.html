@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load mathfilters %}
+{% load staticfiles %}
+
+{% block title %}花火一覧{% endblock title %}
+
+{% block content %}
+<h4 class="mt-4 border-bottom">花火の詳細</h4>
+
+<table class="table table-striped table-bordered">
+    <tbody>
+        <tr>
+            <th scope="row">花火ID</th>
+            <td>{{ fireworks.id }}</td>
+        </tr>
+        <tr>
+            <th scope="row">花火の分類</th>
+            <td>{{ fireworks.fireworks_ }}</td>
+        </tr>
+        <tr>
+            <th scope="row">築年</th>
+            <td>{{ rentroom.built_year }}</td>
+        </tr>
+        <tr>
+            <th scope="row">構造</th>
+            <td>{{ rentroom.structure }}</td>
+        </tr>
+        <tr>
+            <th scope="row">マンション最上階数</th>
+            <td>{{ rentroom.top_floor_num }}</td>
+        </tr>
+        <tr>
+            <th scope="row">間取り</th>
+            <td>{{ rentroom.room_type }}</td>
+        </tr>
+        <tr>
+            <th scope="row">専有面積</th>
+            <td>{{ rentroom.area }}</td>
+        </tr>
+        <tr>
+            <th scope="row">平米単価</th>
+            <td>{{ rentroom.price }}</td>
+        </tr>
+        <tr>
+            <th scope="row">最寄り駅</th>
+            <td>{{ rentroom.nearest_station }}</td>
+        </tr>
+        <tr>
+            <th scope="row">最寄り駅までの距離</th>
+            <td>{{ rentroom.dist_to_nearest_station }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<a href="{% url 'iekari:rentroom_list' %}?page={{ page }}">一覧へ戻る</a>
+{% endblock %}
