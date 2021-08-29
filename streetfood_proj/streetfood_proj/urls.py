@@ -15,6 +15,9 @@ Including another URLconf
 """
 # path()関数、include()関数のインポート 
 from django.urls import include, path
+from . import settings # 追加(2021.08.29.18:07)
+from django.contrib.staticfiles.urls import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 # 管理サイトの機能をインポート 
 from django.contrib import admin 
 
@@ -40,3 +43,6 @@ urlpatterns = [
     path('accounts/register/done', done_view, name='register_done'),
     #追加ここまで
 ]
+
+urlpatterns += staticfiles_urlpatterns()
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

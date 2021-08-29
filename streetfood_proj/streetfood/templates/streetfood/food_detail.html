@@ -24,7 +24,7 @@
     </tbody>
 </table>
 
-<form action="{% url 'streetfood:edit_cart' foood_id=food.id %}?from_page={{page}}" method="post">
+<form action="{% url 'streetfood:edit_cart' food_id=food.id %}?from_page={{page}}" method="post">
     {% csrf_token %}
     <input type="submit" value="add/delete" class="btn btn-primary mt-2">
 </form>

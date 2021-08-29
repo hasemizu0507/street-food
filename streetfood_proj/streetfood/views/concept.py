@@ -7,8 +7,7 @@ import json
 from streetfood.models import Food, Profile, Cart
 
 
-@login_required
-def mypage_top(request):
+def concept_top(request):
     user = request.user
     profile = user.profile
     user_id = user.id
@@ -17,4 +16,4 @@ def mypage_top(request):
     # ユーザーIDがログイン中しているユーザのIDになっているproductsを取り出す。
     products = Cart.objects.filter(user_id=user_id)
 
-    return render(request, 'streetfood/mypage.html', {'profile':profile,'foods':myfoods, 'products': products}) #'assessments':myassessments
+    return render(request, 'streetfood/concept.html', {'profile':profile,'foods':myfoods, 'products': products}) #'assessments':myassessments

@@ -127,3 +127,7 @@ STATIC_URL = '/static/'
 LOGIN_URL='/accounts/login'# 追加(2021.08.29.15:21)
 LOGIN_REDIRECT_URL='/'
 LOGOUT_REDIRECT_URL='/'
+
+# 追加(2021.08.29.17:36)
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
