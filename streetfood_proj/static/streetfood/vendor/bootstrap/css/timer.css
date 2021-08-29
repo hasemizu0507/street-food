@@ -1,0 +1,30 @@
+#CDT {
+width: 100%;
+text-align: center;
+font-size: 49px;
+font-weight: bold;
+color: #ffffff;
+font-family: 'Noto Sans JP', sans-serif;}
+#CDT01 {
+width: 100%;
+text-align: center;
+font-size: 49px;
+font-weight: bold;
+color: #ffffff;
+font-family: 'Noto Sans JP', sans-serif;
+}
+
+.ttl {
+color: #ffffff;
+font-size: 28px;
+font-weight: 600;
+text-align: center;
+margin: 0;
+line-height: 1.5;
+}
+
+.timer {
+background: #d00000;
+margin: 5px auto;
+padding: 5px;
+}
