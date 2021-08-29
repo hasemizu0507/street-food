@@ -13,9 +13,30 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path
+# path()関数、include()関数のインポート 
+from django.urls import include, path
+# 管理サイトの機能をインポート 
+from django.contrib import admin 
+
+from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+
+from streetfood.views.register import register_view, done_view #追加！
+
+def index(request):
+    contexts = {}
+    return render(request,'index.html',contexts)
+
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('', index, name='index'), #追加！
+    # streetfood アプリケーションの URL 設定を追加 
+    path('streetfood/', include('streetfood.urls')), 
+    # 管理サイト 
+    path('admin/', admin.site.urls), 
+    #追加ここから
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/register/', register_view, name='register'),
+    path('accounts/register/done', done_view, name='register_done'),
+    #追加ここまで
 ]

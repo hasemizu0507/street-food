@@ -36,6 +36,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions', #セッション管理
     'django.contrib.messages', #メッセージ管理
     'django.contrib.staticfiles', #静的ファイル管理
+    'streetfood', # streetfoodを追加(2021.08.29.0:08)
+    'bootstrap4', # bootstrap4を追加(2021.08.29.11:46)
+    'mathfilters', # mathfiltersを追加(2021.08.29.13:27)
 ]
 
 MIDDLEWARE = [
@@ -61,6 +64,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+            ],
+            'builtins':[ 
+                'bootstrap4.templatetags.bootstrap4' #追加(2021.08.29.11:50)
             ],
         },
     },
@@ -117,3 +123,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LOGIN_URL='/accounts/login'# 追加(2021.08.29.15:21)
+LOGIN_REDIRECT_URL='/'
+LOGOUT_REDIRECT_URL='/'
