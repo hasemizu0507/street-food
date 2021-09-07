@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles', #静的ファイル管理
     'WineOpener', # WineOpenerを追加（2021/09/04）
     'bootstrap4', # 追加(2021/09/06)
+    'mathfilters', # 追加(2021/09/07)
 ]
 
 MIDDLEWARE = [

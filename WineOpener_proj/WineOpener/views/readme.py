@@ -4,7 +4,7 @@ from django.contrib import messages
 #from django.contrib.auth.decorators import login_required
 
 #import json
-#from streetfood.models import Food, Profile, Cart
+#from streetfood.models import Food, Profile, Cart # 変更予定(2021/09/07)
 
 
 def readme_view(request):

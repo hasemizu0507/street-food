@@ -32,6 +32,14 @@
 <li><a href="contact.html">CONTACT</a></li>
 </ul>
 </nav>
+<ul class="icon">
+	{% if user.is_authenticated %}
+	<li><a href="/WineOpener/mypage">Mypage</a></li>
+    <li><a href="/accounts/logout"><img src="{% static 'WineOpener/images/sign_out.jpg' %}" alt="sign_out"></a></li>
+	{% else %}
+    <li><a href="/accounts/register"><img src="{% static 'WineOpener/images/sign_up.jpg' %}" alt="sign_up"></a></li>
+    <li><a href="/accounts/login"><img src="{% static 'WineOpener/images/sign_in.jpg' %}" alt="sign_in"></a></li>
+	{% endif %}
 </ul>
 </header>
 
