@@ -1,0 +1,104 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>WineOpener</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="ここにサイト説明を入れます">
+<meta name="keywords" content="キーワード１,キーワード２,キーワード３,キーワード４,キーワード５">
+<link rel="stylesheet" href="{% static 'WineOpener/css/style.css' %}">
+<script src="{% static 'WineOpener/js/openclose.js' %}"></script>
+<script src="{% static 'WineOpener/js/fixmenu_pagetop.js' %}"></script>
+<script src="{% static 'WineOpener/js/vivus.js' %}"></script>
+</head>
+
+
+<body class="home">
+
+<div id="container">
+
+<header>
+<h1 id="logo"><a href="/"><img src="{% static 'WineOpener/images/logo_wineopener.jpg' %}" alt="WineOpener"></a></h1>
+<!--PC用（901px以上端末）メニュー-->
+<nav id="menubar">
+<ul>
+<li><a href="/WineOpener/readme">READ ME</a></li>
+<li><a href="/WineOpener/live">Live配信一覧</a></li>
+<li><a href="profile.html">PROFILE</a></li>
+<li><a href="event.html">EVENT</a></li>
+<li><a href="discography.html">DISCOGRAPHY</a></li>
+<li><a href="contact.html">CONTACT</a></li>
+</ul>
+</nav>
+</ul>
+</header>
+
+<div id="contents">
+
+<div id="main">
+
+<section id="mainimg">
+
+<h2 class="dn">お知らせ</h2>
+
+<a href="/WineOpener/live/live1"><div class="slide1"></div><p>画面をクリックするとLive配信へ</p></div></a>
+<a href="live_list.html"><div class="slide2"><p>変更予定(2021/09/06)</p></div></a>
+<a href="live_list.html"><div class="slide3"><p>変更予定(2021/09/06)</p></div></a>
+
+</section>
+
+</div>
+<!--/#main-->
+
+</div>
+<!--/#contents-->
+
+<footer>
+<small>Copyright&copy; <a href="/">INDIES BAND</a> All Rights Reserved.</small>
+<span class="pr"><a href="https://template-party.com/" target="_blank">《Web Design:Template-Party》</a></span>
+</footer>
+
+</div>
+<!--/#container-->
+
+<!--小さな端末用（900px以下端末）メニュー-->
+<nav id="menubar-s">
+<ul>
+<li><a href="readme.html">READ ME</a></li>
+<li><a href="live_list.html">NEWS</a></li>
+<li><a href="profile.html">PROFILE</a></li>
+<li><a href="event.html">EVENT</a></li>
+<li><a href="discography.html">DISCOGRAPHY</a></li>
+<li><a href="contact.html">CONTACT</a></li>
+</ul>
+</nav>
+
+<!--ページの上部に戻る「↑」ボタン-->
+<p class="nav-fix-pos-pagetop"><a href="#">↑</a></p>
+
+<!--メニュー開閉ボタン-->
+<div id="menubar_hdr" class="close"></div>
+
+<!--メニューの開閉処理条件設定　900px以下-->
+<script>
+if (OCwindowWidth() <= 900) {
+	open_close("menubar_hdr", "menubar-s");
+}
+</script>
+
+<!--ロゴアニメーション-->
+<script>
+new Vivus('svg-logo', {
+	start: 'autostart',
+	duration: 1000,	//アニメーションの速度
+});
+</script>
+
+<!--パララックス用ファイル読み込み
+<script src="{% static 'WineOpener/js/jquery.inview.js' %}"></script>
+<script src="{% static 'WineOpener/js/jquery.inview_set.js' %}"></script>-->
+
+</body>
+</html>

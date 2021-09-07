@@ -1,0 +1,153 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>WineOpener</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="ここにサイト説明を入れます">
+<meta name="keywords" content="キーワード１,キーワード２,キーワード３,キーワード４,キーワード５">
+<link rel="stylesheet" href="{% static 'WineOpener/css/style.css' %}"> <!--変更-->
+<script src="{% static 'WineOpener/js/openclose.js' %}"></script> <!--変更-->
+<script src="{% static 'WineOpener/js/fixmenu_pagetop.js' %}"></script> <!--変更-->
+<script src="{% static 'WineOpener/js/vivus.js' %}"></script> <!--変更予定？-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> <!--変更予定？-->
+</head>
+
+<body>
+<div id="container">
+
+<header>
+<h1 id="logo"><a href="/"><img src="{% static 'WineOpener/images/logo_wineopener.jpg' %}" alt="WineOpener"></a></h1>
+<!--PC用（901px以上端末）メニュー-->
+<nav id="menubar">
+<ul>
+<li><a href="/WineOpener/readme">READ ME</a></li>
+<li class="current"><a href="/WineOpener/live">Live配信一覧</a></li>
+<li><a href="profile.html">PROFILE</a></li>
+<li><a href="event.html">EVENT</a></li>
+<li><a href="discography.html">DISCOGRAPHY</a></li>
+<li><a href="contact.html">CONTACT</a></li>
+</ul>
+</nav>
+</header>
+
+<div id="contents">
+
+<div id="main">
+
+<section>
+
+<h2>Live配信一覧<span>最新情報のご案内</span></h2>
+
+<dl class="news">
+
+<dt>2021/09/06<span class="icon event">NEW</span></dt> <!--変更(2021/09/06)-->
+<dd>【ワイン】スターワインの仕掛け人が選ぶヴィンテージワインコレクション<br><a href="{% url 'WineOpener:live_detail' %}">配信はこちら</a></dd>
+
+<dt>20XX/00/00<span class="icon">EVENT</span></dt>
+<dd><img src="images/sample1_mini.jpg" alt="" class="img">「INFORMATIOM」「EVENT」「MEDIA」のアイコンの文字は直接html側で入れ替え可能です。<br>
+色はcssフォルダのstyle.cssの、<br>
+<span class="color1">/*NEWSブロック内のアイコン</span><br>
+で調整可能。</dd>
+
+<dt>20XX/00/00<span class="icon media">MEDIA</span></dt>
+<dd><img src="images/sample1_mini.jpg" alt="" class="img">imgタグに<span class="color1">class=&quot;img&quot;</span>をつけると右側の画像のように小さな画像になって右に回り込みとなります。画像幅はcssフォルダのstyle.cssで調整可能。</dd>
+
+<dt>20XX/00/00</dt>
+<dd>サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>
+
+<dt>20XX/00/00</dt>
+<dd>サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>
+
+<dt>20XX/00/00</dt>
+<dd>サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>
+
+<dt>20XX/00/00</dt>
+<dd>サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>
+
+<dt>20XX/00/00</dt>
+<dd>サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>
+
+<dt>20XX/00/00</dt>
+<dd>サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>
+
+<dt>20XX/00/00</dt>
+<dd>サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>
+
+<dt>20XX/00/00</dt>
+<dd>サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>
+
+<dt>20XX/00/00</dt>
+<dd>サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>
+
+<dt>20XX/00/00</dt>
+<dd>サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>
+
+<dt>20XX/00/00</dt>
+<dd>画像にclass指定がなければこのようにブロック幅一杯に表示されます。<img src="images/1.jpg" alt=""></dd>
+
+</dl>
+
+</section>
+
+</div>
+<!--/#main-->
+
+<div id="sub">
+
+<h2>ARCHIVE</h2>
+<ul class="submenu">
+<li><a href="#">2021年</a></li>
+<li><a href="#">2020年</a></li>
+<li><a href="#">2019年</a></li>
+<li><a href="#">2018年</a></li>
+<li><a href="#">2017年</a></li>
+</ul>
+
+</div>
+<!--/#sub-->
+
+</div>
+<!--/#contents-->
+
+<footer>
+<small>Copyright&copy; <a href="/">INDIES BAND</a> All Rights Reserved.</small>
+<span class="pr"><a href="https://template-party.com/" target="_blank">《Web Design:Template-Party》</a></span>
+</footer>
+
+</div>
+<!--/#container-->
+
+<!--小さな端末用（900px以下端末）メニュー-->
+<nav id="menubar-s">
+<ul>
+<li><a href="readme.html">READ ME</a></li>
+<li><a href="live_list.html">NEWS</a></li>
+<li><a href="profile.html">PROFILE</a></li>
+<li><a href="event.html">EVENT</a></li>
+<li><a href="discography.html">DISCOGRAPHY</a></li>
+<li><a href="contact.html">CONTACT</a></li>
+</ul>
+</nav>
+
+<!--ページの上部に戻る「↑」ボタン-->
+<p class="nav-fix-pos-pagetop"><a href="#">↑</a></p>
+
+<!--メニュー開閉ボタン-->
+<div id="menubar_hdr" class="close"></div>
+
+<!--メニューの開閉処理条件設定　900px以下-->
+<script>
+if (OCwindowWidth() <= 900) {
+	open_close("menubar_hdr", "menubar-s");
+}
+</script>
+
+<!--パララックス用ファイル読み込み-->
+<script src="{% static 'WineOpener/js/jquery.inview.js' %}"></script>
+<script src="{% static 'WineOpener/js/jquery.inview_set.js' %}"></script>
+
+</body>
+</html>

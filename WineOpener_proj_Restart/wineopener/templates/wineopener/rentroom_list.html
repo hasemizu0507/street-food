@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load mathfilters %}
+
+{% block title %}物件の一覧{% endblock title %}
+
+{% block content %}
+<h4 class="mt-4 border-bottom">物件の一覧</h4>
+
+
+<table class="table table-striped table-bordered">
+   <thead>
+       <tr>
+           <th>物件ID</th>
+           <th>住所</th>
+           <th>築年</th>
+           <th>間取り</th>
+           <th>専有面積</th>
+           <th>平米単価</th>
+           <th>最寄り駅</th>
+{% if user.is_superuser %}
+           <th>承認</th>
+{% endif %}
+       </tr>
+   </thead>
+   <tbody>
+       {% for wine in wines %}
+{% if wine.is_active or user.is_superuser %}
+       <tr>
+           <th>
+            <a href="{% url 'wineopener:wine_detail' wine_id=wine.id %}">
+                {{ wine.id }}
+            </a>
+
+           </th>
+           <td>{{ wine.pref_name|add:wine.city_name|add:wine.district_name }}</td>
+           <td>{{ wine.built_year }}</td>
+           <td>{{ wine.room_type }}</td>
+           <td>{{ wine.area }}</td>
+           <td>{{ wine.price }}</td>
+           <td>{{ wine.nearest_station }}</td>
+   {% if user.is_superuser %}
+       {% if wine.is_active == False %}
+           <td><a href>承認する</a></td>
+       {% else %}
+           <td>承認済み</td>
+       {% endif %}
+   {% endif %}
+{% endif %}
+       </tr>
+       {% endfor %}
+   </tbody>
+</table>
+
+{% if page > 1 %}
+<a href>前のページ</a>
+{% endif %}
+{% if page < last_page %}
+<a href>次のページ</a>
+{% endif %}
+{% endblock %}
