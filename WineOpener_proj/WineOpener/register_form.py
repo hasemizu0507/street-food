@@ -8,18 +8,20 @@ from WineOpener.models import GENDER_LIST, Profile
 class RegisterForm(UserCreationForm):
     age = forms.IntegerField(required=True)
     gender = forms.ChoiceField(choices=GENDER_LIST, required=True)
-    household_num = forms.IntegerField(required=True)
+    mobile = forms.CharField(required=True)
+    email = forms.CharField(required=True)
 
     class Meta:
         model = User
-        fields = ['username', 'password1', 'password2','age','gender','household_num']
+        fields = ['username', 'password1', 'password2','age','gender', 'mobile', 'email']
         labels = {
             'username': 'ユーザー名',
             'password1': 'パスワード',
             'password2': 'パスワード確認',
             'age': '年齢',
             'gender': '性別',
-            'household_num': '世帯人数',
+            'mobile': '携帯番号',
+            'email': 'メールアドレス'
         }
 
     def save(self, commit=True):
@@ -37,9 +39,10 @@ class RegisterForm(UserCreationForm):
 
         age = self.cleaned_data['age']
         gender = self.cleaned_data['gender']
-        household_num = self.cleaned_data['household_num']
+        mobile = self.cleaned_data['mobile']
+        email = self.cleaned_data['email']
 
-        profile = Profile(id=prof_id,age=age,gender=gender,household_num=household_num,user_id=user.id)
+        profile = Profile(id=prof_id,age=age,gender=gender,mobile=mobile,email=email,user_id=user.id)
         profile.save()
 
         return user

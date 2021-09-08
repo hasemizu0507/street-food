@@ -32,10 +32,13 @@
 </ul>
 </nav>
 <ul class="icon">
-    <li><a href="#"><img src="{% static 'WineOpener/images/icon_facebook.png' %}" alt="Facebook"></a></li>
-    <li><a href="#"><img src="{% static 'WineOpener/images/icon_twitter.png' %}" alt="Twitter"></a></li>
-    <li><a href="#"><img src="{% static 'WineOpener/images/icon_instagram.png' %}" alt="Instagram"></a></li>
-    <li><a href="#"><img src="{% static 'WineOpener/images/icon_youtube.png' %}" alt="YouTube"></a></li>
+    {% if user.is_authenticated %}
+	<li><a href="/WineOpener/mypage">マイページ</a></li>
+    <li><a href="/accounts/logout">ログアウト</a></li>
+	{% else %}
+    <li><a href="/accounts/register">会員登録</a></li>
+    <li><a href="/accounts/login">ログイン</a></li>
+	{% endif %}
 </ul>
 </header>
 
@@ -60,33 +63,6 @@
 
 <dt>20XX/00/00<span class="icon media">MEDIA</span></dt>
 <dd><img src="images/sample1_mini.jpg" alt="" class="img">imgタグに<span class="color1">class=&quot;img&quot;</span>をつけると右側の画像のように小さな画像になって右に回り込みとなります。画像幅はcssフォルダのstyle.cssで調整可能。</dd>
-
-<dt>20XX/00/00</dt>
-<dd>サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>
-
-<dt>20XX/00/00</dt>
-<dd>サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>
-
-<dt>20XX/00/00</dt>
-<dd>サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>
-
-<dt>20XX/00/00</dt>
-<dd>サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>
-
-<dt>20XX/00/00</dt>
-<dd>サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>
-
-<dt>20XX/00/00</dt>
-<dd>サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>
-
-<dt>20XX/00/00</dt>
-<dd>サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>
-
-<dt>20XX/00/00</dt>
-<dd>サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>
-
-<dt>20XX/00/00</dt>
-<dd>サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>
 
 <dt>20XX/00/00</dt>
 <dd>サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。サンプルテキスト。</dd>

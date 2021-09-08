@@ -47,10 +47,13 @@
 </ul>
 </nav>
 <ul class="icon">
-<li><a href="#"><img src="{% static 'WineOpener/images/icon_facebook.png' %}" alt="Facebook"></a></li>
-<li><a href="#"><img src="{% static 'WineOpener/images/icon_twitter.png' %}" alt="Twitter"></a></li>
-<li><a href="#"><img src="{% static 'WineOpener/images/icon_instagram.png' %}" alt="Instagram"></a></li>
-<li><a href="#"><img src="{% static 'WineOpener/images/icon_youtube.png' %}" alt="YouTube"></a></li>
+  {% if user.is_authenticated %}
+	<li><a href="/WineOpener/mypage">マイページ</a></li>
+    <li><a href="/accounts/logout">ログアウト</a></li>
+	{% else %}
+    <li><a href="/accounts/register">会員登録</a></li>
+    <li><a href="/accounts/login">ログイン</a></li>
+	{% endif %}
 </ul>
 </header>
 
