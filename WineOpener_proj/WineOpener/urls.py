@@ -14,4 +14,9 @@ urlpatterns = [
 
     path('mypage', mypage.mypage_top, name='mypage_top'),
     path('edit_cart/<slug:livewine_id>', live.edit_cart, name='edit_cart'), # 追加(2021/09/08)
+
+    path('checkout/', mypage.checkout, name='checkout'),
+    path('success/', mypage.success, name='success'),
+    path('cancel/', mypage.cancel, name='cancel'),
+    path('create_checkout_session/', mypage.create_checkout_session, name='checkout_session'), # 追加(2021/09/09)
 ]

@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'WineOpener', # WineOpenerを追加（2021/09/04）
     'bootstrap4', # 追加(2021/09/06)
     'mathfilters', # 追加(2021/09/07)
+    'stripe', # 追加(2021/09/09)
 ]
 
 MIDDLEWARE = [
@@ -132,3 +133,6 @@ STATICFILES_DIRS = (
 LOGIN_URL='/accounts/login'
 LOGIN_REDIRECT_URL='/'
 LOGOUT_REDIRECT_URL='/'
+
+STRIPE_PUBLISHABLE_KEY = 'pk_test_51JSsEIFHEQ8jpLAoaplG1M3ku0hb12xdVDaGSZ1FUth16HXnXtt4LDUlOnbLdukmFRmb5NNEzcP7GJpjlcVmS9PY00kLJWs58V'
+STRIPE_SECRET_KEY = 'sk_test_51JSsEIFHEQ8jpLAoL6sjCZ9zwUJQa6rSlx24lUlsWMAywzEYjRIPBT4PTSMkfTAZKUZelnII9NKAxGnrXMPxim2S00Qh2eBpl4'

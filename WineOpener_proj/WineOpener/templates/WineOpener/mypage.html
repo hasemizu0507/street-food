@@ -36,4 +36,9 @@
             {% endfor %}
         </tbody>
     </table>
+
+    <form action="{% url 'WineOpener:checkout' %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Buy All" class="btn btn-primary mt-2">
+    </form>
 {% endblock %}

@@ -8,38 +8,16 @@
   <script src="https://js.stripe.com/v3/"></script>
   <hr><hr><hr>
   <section>
-    <h2>{{ user_id }}様</h2> <!--変更-->
-    <h1>これらの商品を購入しますか？</h1>
+    <h1>この商品を購入しますか？</h1>
     <div class="product">
       <div class="description">
-        <h2>合計金額：{{price}}円</h2> <!--変更-->
-        <table class="table table-striped table-bordered">
-            <thead>
-                <tr>
-                <th scope="col">物件ID</th>
-                <th scope="col">間取り</th>
-                <th scope="col">価格</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for product in products %}
-                <tr>
-                <th scope="row">
-                    {{ product.id }} <!--変更-->
-                </th>
-                <th scope="row">
-                    {{ product.room_type }} <!--変更-->
-                </th>
-                <th scope="row">
-                    {{ product.price }} <!--変更-->
-                </th>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        <h3>sample house</h3>
+        <img class="card-img-top"
+            src="http://gahag.net/img/201606/12s/gahag-0095672681-1.jpg" alt="">
+        <h5>2,000円</h5>
       </div>
     </div>
-    <button type="button" id="checkout-button">これらの商品を購入</button>
+    <button type="button" id="checkout-button">この商品を購入</button>
   </section>
   <hr><hr><hr>
   <!-- 以下決済のためのJavaScript -->
@@ -52,7 +30,7 @@
    var checkoutButton = document.getElementById("checkout-button");
    // ボタンが押された際の処理
    checkoutButton.addEventListener("click", function () {
-     fetch("/wineopener/create_checkout_session/", {
+     fetch("/WineOpener/create_checkout_session/", {
        method: "POST",
        headers: {
            'Accept': 'application/json',
