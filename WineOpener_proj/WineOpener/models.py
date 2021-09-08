@@ -43,7 +43,8 @@ class Wine(models.Model): # 変更(2021/09/08)
     thumbnail = models.CharField('サムネイル',max_length=50)      # 'WineOpener/images/live1.jpg'
     name = models.CharField('ワイン名',max_length=50)      # 'シャトー・オー・プニャン'
     price = models.IntegerField('価格')    # '2200'
-    harvest_year = models.IntegerField('収穫年')
+    stock = models.IntegerField('在庫')    # '5'
+    harvest_year = models.IntegerField('収穫年')       # '2018'
     producer = models.CharField('生産者',max_length=50)
     region = models.CharField('産地',max_length=50)
     style = models.CharField('タイプ',max_length=20)        # '赤ワイン', '白ワイン' など
@@ -60,8 +61,23 @@ class Wine(models.Model): # 変更(2021/09/08)
             +self.thumbnail+' ' \
             +self.name+' ' \
             +str(self.price)+' ' \
+            +str(self.stock)+' ' \
             +str(self.harvest_year)+' '\
             +self.producer+' '\
             +self.region+' '\
             +self.style+' '\
             +self.type
+
+class Cart(models.Model): #変更(2021/09/08)
+    class Meta:
+        verbose_name = 'カート情報'
+        verbose_name_plural = 'カート情報'
+    
+    user_id = models.CharField('ユーザーID',max_length=6) # ユーザーID
+    product_id = models.CharField('商品ID',max_length=6) # 商品ID
+    timestamp = models.DateTimeField('追加日時',auto_now_add=True) # 追加日時
+
+    def __str__(self):
+        return self.user_id +' '\
+            +self.product_id +' '\
+            +self.timestamp

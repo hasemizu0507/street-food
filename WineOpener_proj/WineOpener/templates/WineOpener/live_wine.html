@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load mathfilters %}
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -47,41 +48,44 @@
 <div id="main">
 
 <section>
-<h2>Live<span>Live配信1</span></h2>
+<h2>商品詳細<span>Live配信1</span></h2>
 <h3>【ワイン】スターワインの仕掛け人が選ぶヴィンテージワインコレクション</h3>
 <dl class="news">
-    <iframe src="https://twitcasting.tv/g:105881481929015164763/embeddedplayer/live?auto_play=false&default_mute=true" width="640px" height="605px" frameborder="0" allowfullscreen></iframe>
     <table class="ta1">
         <caption>販売中商品</caption>
         <tr>
-            <th>Image</th> <th>Detail</th> <th>Stock</th> <th></th>
+            <th>商品名</th>
+            <td>{{ wine_information.name }}</td>
         </tr>
-        
-        {% for wine_information in wine_informations %}
         <tr>
-            <th><img src="{% static '{{ wine_information.thumbnail }}' %}" width="100px" height="100px"  alt="wine_thumbnail"></th><!--画像の挿入が未実装…-->
-            <th>{{ wine_information.name }}<br>・価格：￥{{ wine_information.price }}<br>・収穫年：{{ wine_information.harvest_year }}年<br>・生産者：{{ wine_information.producer }}<br>・産地：{{ wine_information.region }}<br>・タイプ：{{ wine_information.style }}<br>・品種：{{ wine_information.type }}</th>
-            <th>{{ wine_information.stock }}</th>
-            <th>
-                <a href="{% url 'WineOpener:live_wine' livewine_id=wine_information.id %}">
-                    購入ページ
-                </a>
-            </th>
+            <th>価格</th>
+            <td>{{ wine_information.price }}</td>
         </tr>
-        {% endfor %}
-        
-    </table>
-    <div class="clear">
-        <aside class="fl w25"><img src="{% static 'WineOpener/images/photo1.png' %}" alt=""></aside>
-        
-        <section class="fr w70">
-        <h2>PROFILE<span>カスタニエ・クリストフ (Christophe CASTAGNE)</span></h2>
-        <p>ラティテュード株式会社 (Latitude K.K)　代表取締役</p>
-        <h3>社長挨拶　Latitude の願い</h3>
-        <p>私、Christophe CASTAGNE（カスタニエ・クリストフ）は1970年にフランスで生まれました。<br>「新しい人生経験」を求め、幼少時代に母国フランスを発ち、<br>その後の18年間をアフリカで、<br>4年間をアメリカ、<br>8年間を日本、そして今私自身のブランドを立ち上げようと決心しました。</p>
-        <p>1980年代後半からワインビジネスを確立するために来日するようになり、<br>それから約14年間の歳月の中でワインのフリーランス、スペシャリストとして経験を積み、<br>「日本の皆様」と「ワイン」の橋渡しに貢献できるよう取り組んで参りました。<br>時にはワインセミナーを開催したり、日本及び各国のワイン展示会への出店、<br>また店頭でのデモンストレーションも数多く経験させていただきました。<br>そのような体当たりの経験ができたからころ、日本のワイン市場を体で感じることができるようになったのだと思います。</p>
-        </section>        
-    </div>        
+        <tr>
+            <th>収穫年</th>
+            <td>{{ wine_information.harvest_year }}</td>
+        </tr>
+        <tr>
+            <th>生産者</th>
+            <td>{{ wine_information.producer }}</td>
+        </tr>
+        <tr>
+            <th>産地</th>
+            <td>{{ wine_information.region }}</td>
+        </tr>
+        <tr>
+            <th>タイプ</th>
+            <td>{{ wine_information.style }}</td>
+        </tr>
+        <tr>
+            <th>品種</th>
+            <td>{{ wine_information.type }}</td>
+        </tr>
+    </table> 
+    <form action="{% url 'WineOpener:edit_cart' livewine_id=wine_information.id %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="add/delite" class="btn btn-primary mt-2">
+    </form>      
 </dl>
 
 </section>
