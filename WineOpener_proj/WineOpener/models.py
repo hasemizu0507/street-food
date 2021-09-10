@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User 
-from django.db import models 
+from django.db import models
  
 GENDER_LIST = ( (0, '男性'), (1, '女性') )
 dict_gender_list = dict(GENDER_LIST) #追加(2021/09/06)
@@ -81,3 +81,20 @@ class Cart(models.Model): #変更(2021/09/08)
         return self.user_id +' '\
             +self.product_id +' '\
             +self.timestamp
+
+class Topic(models.Model):
+    class Meta:
+        managed = True
+        verbose_name = 'コメント'
+        verbose_name_plural = 'コメント'
+        db_table = "topic"
+    
+    user_id = models.CharField('ユーザーID',max_length=6) # ユーザーID
+    stream_id = models.CharField('コメントID',max_length=6) # コメントID
+    comment = models.CharField('コメント', max_length=50) # コメント
+    timestamp = models.DateTimeField('追加日時', auto_now_add=True) # 追加日時
+    def __str__(self):
+        return self.user_id + ' '\
+            + self.stream_id + ' '\
+            + self.comment + ' '\
+            + str(self.timestamp)

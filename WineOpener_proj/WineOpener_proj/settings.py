@@ -25,7 +25,7 @@ SECRET_KEY = 'fdazr+8mmkg24cwav5ufs#0cac-in!ls$4+jshts4xcoe%t&dq'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["35.76.198.115", "wineopener.techpreneur.jp"]
 
 # Application definition 
 INSTALLED_APPS = [ 
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'bootstrap4', # 追加(2021/09/06)
     'mathfilters', # 追加(2021/09/07)
     'stripe', # 追加(2021/09/09)
+    'rest_framework', # 追加(2021/09/09)
 ]
 
 MIDDLEWARE = [

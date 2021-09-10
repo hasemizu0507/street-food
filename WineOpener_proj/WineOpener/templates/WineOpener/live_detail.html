@@ -13,6 +13,8 @@
 <script src="{% static 'WineOpener/js/fixmenu_pagetop.js' %}"></script> <!--変更-->
 <script src="{% static 'WineOpener/js/vivus.js' %}"></script> <!--変更-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> <!--変更-->
+<script src="{% static 'WineOpener/js/ajax.js' %}"></script> <!--追加(2021/09/10)-->
+<script src="{% static 'WineOpener/js/onload.js' %}"></script> <!--追加(2021/09/10)-->
 </head>
 
 <body>
@@ -98,6 +100,15 @@
 <li><a href="#">2019年</a></li>
 <li><a href="#">2018年</a></li>
 <li><a href="#">2017年</a></li>
+<!--追加(2021/09/10)-->
+<form>
+    {% csrf_token %}
+    <textarea id="comment" class="form-control" name="comment"></textarea>
+    <input id="submit" type="button" value="送信">
+</form>
+<div id="comment_area">
+    {% include 'WineOpener/comment.html' %}
+</div>
 </ul>
 
 </div>

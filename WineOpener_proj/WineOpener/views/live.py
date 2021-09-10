@@ -3,7 +3,7 @@ from django.http import HttpResponse, Http404, JsonResponse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
-#import json
+import json
 from WineOpener.models import Profile, Wine, Cart # 変更(2021/09/08)
 from django.contrib.auth.models import User
 
